@@ -10,7 +10,7 @@ namespace AccesoDatos
 {
     public interface IDaoUsuario
     {
-        Empleado ObtenerPorNick(string nick);
+        Usuario ObtenerPorNick(string nick);
         string ObtenerNombre(int idUsuario);
     }
 }
