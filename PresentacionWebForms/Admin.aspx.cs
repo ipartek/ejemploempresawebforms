@@ -7,11 +7,16 @@ using System.Web.UI.WebControls;
 
 namespace PresentacionWebForms
 {
-    public partial class Contact : Page
+    public partial class Admin : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
 
+        }
+
+        protected void btnAlta_Click(object sender, EventArgs e)
+        {
+            Server.Transfer("~/Empleado.aspx");
         }
     }
 }
