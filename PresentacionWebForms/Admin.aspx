@@ -21,10 +21,10 @@
                 <ItemTemplate>
                     <tr>
                         <td><%# Eval("Id") %></td>
-                        <td><%# Eval("IdDepartamento") %></td>
+                        <td><%# Eval("DepartamentoAsignado.Nombre") %></td>
                         <td><%# Eval("Nombre") %></td>
-                        <td><%# Eval("FechaDeNacimiento") %></td>
-                        <td><%# Eval("Sueldo") %></td>
+                        <td><%# Eval("FechaDeNacimiento", "{0:dd/MM/yyyy}") %></td>
+                        <td><%# Eval("Sueldo", "{0:c}") %></td>
                         <td><%# Eval("Dni") %></td>
                         <td>
                             <%--<asp:LinkButton ID="btnEditar" runat="server" Text="Editar" 

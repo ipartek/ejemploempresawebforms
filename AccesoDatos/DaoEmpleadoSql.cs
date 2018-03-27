@@ -219,7 +219,7 @@ namespace AccesoDatos
                     con.Open();
 
                     IDbCommand com = con.CreateCommand();
-                    com.CommandText = "SELECT Id, IdDepartamento, Nombre, FechaDeNacimiento, Sueldo, DNI FROM Empleados";
+                    com.CommandText = "SELECT e.Id, e.IdDepartamento, e.Nombre, e.FechaDeNacimiento, e.Sueldo, e.DNI, d.Nombre FROM Empleados e INNER JOIN Departamentos d ON e.IdDepartamento = d.Id";
 
                     IDataReader dr = com.ExecuteReader();
 
@@ -237,6 +237,12 @@ namespace AccesoDatos
                             FechaDeNacimiento = dr.GetDateTime(3),
                             Sueldo = dr.GetDecimal(4),
                             Dni = dr.GetString(5)
+                        };
+
+                        empleado.DepartamentoAsignado = new Departamento()
+                        {
+                            Id = empleado.IdDepartamento,
+                            Nombre = dr.GetString(6)
                         };
 
                         empleados.Add(empleado);
