@@ -24,6 +24,8 @@ namespace AccesoDatos
             {
                 using (IDbConnection con = new SqlConnection(cadenaConexion))
                 {
+                    con.Open();
+
                     IDbCommand com = con.CreateCommand();
                     com.CommandText = "INSERT INTO Empleados (IdDepartamento, Nombre, FechaDeNacimiento, Sueldo, DNI) VALUES (@IdDepartamento, @Nombre, @FechaDeNacimiento, @Sueldo, @DNI)";
 
@@ -78,6 +80,8 @@ namespace AccesoDatos
             {
                 using (IDbConnection con = new SqlConnection(cadenaConexion))
                 {
+                    con.Open();
+
                     IDbCommand com = con.CreateCommand();
                     com.CommandText = "DELETE FROM Empleados WHERE Id=@Id";
 
@@ -107,6 +111,8 @@ namespace AccesoDatos
             {
                 using (IDbConnection con = new SqlConnection(cadenaConexion))
                 {
+                    con.Open();
+
                     IDbCommand com = con.CreateCommand();
                     com.CommandText = "UPDATE Empleados SET IdDepartamento=@IdDepartamento, Nombre=@Nombre, FechaDeNacimiento=@FechaDeNacimiento, Sueldo=@Sueldo, DNI=@DNI WHERE Id=@Id";
 
@@ -166,6 +172,8 @@ namespace AccesoDatos
             {
                 using (IDbConnection con = new SqlConnection(cadenaConexion))
                 {
+                    con.Open();
+
                     IDbCommand com = con.CreateCommand();
                     com.CommandText = "SELECT Id, IdDepartamento, Nombre, FechaDeNacimiento, Sueldo, DNI FROM Empleados WHERE Id=@Id";
 
@@ -208,6 +216,8 @@ namespace AccesoDatos
             {
                 using (IDbConnection con = new SqlConnection(cadenaConexion))
                 {
+                    con.Open();
+
                     IDbCommand com = con.CreateCommand();
                     com.CommandText = "SELECT Id, IdDepartamento, Nombre, FechaDeNacimiento, Sueldo, DNI FROM Empleados";
 

@@ -5,32 +5,39 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
+using AccesoDatos;
+
 namespace PresentacionWebForms
 {
     public partial class Admin : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            List<Entidades.Empleado> empleados = new List<Entidades.Empleado>();
+            List<Entidades.Empleado> empleados;
 
-            empleados.Add(new Entidades.Empleado() {
-                Id = 1,
-                IdDepartamento = 1,
-                Nombre = "Javier Lete",
-                FechaDeNacimiento = new DateTime(),
-                Sueldo = 24000m,
-                Dni = "12345678M"
-            });
+            IDaoEmpleado dao = new DaoEmpleadoSql(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\javierlete\Source\Repos\EjemploEmpresa\PresentacionWebForms\App_Data\EjemploEmpresa.mdf;Integrated Security=True");
+            empleados = dao.ObtenerTodos();
 
-            empleados.Add(new Entidades.Empleado()
-            {
-                Id = 2,
-                IdDepartamento = 1,
-                Nombre = "Pepe Pérez",
-                FechaDeNacimiento = new DateTime(),
-                Sueldo = 24000m,
-                Dni = "87654321A"
-            });
+            //empleados = new List<Entidades.Empleado>();
+
+            //empleados.Add(new Entidades.Empleado() {
+            //    Id = 1,
+            //    IdDepartamento = 1,
+            //    Nombre = "Javier Lete",
+            //    FechaDeNacimiento = new DateTime(),
+            //    Sueldo = 24000m,
+            //    Dni = "12345678M"
+            //});
+
+            //empleados.Add(new Entidades.Empleado()
+            //{
+            //    Id = 2,
+            //    IdDepartamento = 1,
+            //    Nombre = "Pepe Pérez",
+            //    FechaDeNacimiento = new DateTime(),
+            //    Sueldo = 24000m,
+            //    Dni = "87654321A"
+            //});
 
             tabla.DataSource = empleados;
             tabla.DataBind();

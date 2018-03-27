@@ -25,6 +25,8 @@ namespace AccesoDatos
             {
                 using (IDbConnection con = new SqlConnection(cadenaConexion))
                 {
+                    con.Open();
+
                     IDbCommand com = con.CreateCommand();
                     com.CommandText = "SELECT e.Nombre FROM Usuarios u INNER JOIN Empleados e ON e.Id = u.IdEmpleado WHERE u.Id=@Id";
 
@@ -50,6 +52,8 @@ namespace AccesoDatos
             {
                 using (IDbConnection con = new SqlConnection(cadenaConexion))
                 {
+                    con.Open();
+
                     IDbCommand com = con.CreateCommand();
                     com.CommandText = "SELECT Id, Nick, Password, IdEmpleado FROM Usuarios WHERE Nick=@Nick";
 

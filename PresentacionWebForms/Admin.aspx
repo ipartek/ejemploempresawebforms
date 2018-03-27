@@ -17,7 +17,7 @@
             </tr>
         </thead>
         <tbody>
-            <asp:Repeater ID="tabla" runat="server" OnItemCommand="tabla_ItemCommand">
+            <asp:Repeater ID="tabla" runat="server"><%--OnItemCommand="tabla_ItemCommand"--%>
                 <ItemTemplate>
                     <tr>
                         <td><%# Eval("Id") %></td>

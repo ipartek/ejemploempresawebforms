@@ -24,6 +24,8 @@ namespace AccesoDatos
             {
                 using (IDbConnection con = new SqlConnection(cadenaConexion))
                 {
+                    con.Open();
+
                     IDbCommand com = con.CreateCommand();
                     com.CommandText = "SELECT Id, Nombre FROM Departamentos WHERE Id=@Id";
 
@@ -62,6 +64,8 @@ namespace AccesoDatos
             {
                 using (IDbConnection con = new SqlConnection(cadenaConexion))
                 {
+                    con.Open();
+
                     IDbCommand com = con.CreateCommand();
                     com.CommandText = "SELECT Id, IdDepartamento, Nombre, FechaDeNacimiento, Sueldo, DNI FROM Empleados";
 
