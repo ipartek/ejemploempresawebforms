@@ -51,6 +51,13 @@ namespace PresentacionWebForms
                     case "borrar":
                         btnAceptar.Text = "Borrar";
                         btnAceptar.CssClass += " btn-danger";
+
+                        txtNombre.Enabled = false;
+                        txtFecha.Enabled = false;
+                        txtDni.Enabled = false;
+                        txtSueldo.Enabled = false;
+                        ddlDepartamento.Enabled = false;
+
                         break;
                     case "editar":
                         btnAceptar.Text = "Cambiar";
@@ -58,6 +65,41 @@ namespace PresentacionWebForms
                         break;
                 }
             }
+        }
+
+        protected void btnAceptar_Click(object sender, EventArgs e)
+        {
+            IDaoEmpleado dao = new DaoEmpleadoSql(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\javierlete\Source\Repos\EjemploEmpresa\PresentacionWebForms\App_Data\EjemploEmpresa.mdf;Integrated Security=True");
+
+            switch (Request["opcion"])
+            {
+                case "alta":
+                    dao.Alta(new Entidades.Empleado()
+                    {
+                        IdDepartamento = int.Parse(ddlDepartamento.SelectedValue),
+                        Nombre = txtNombre.Text,
+                        FechaDeNacimiento = DateTime.Parse(txtFecha.Text),
+                        Sueldo = decimal.Parse(txtSueldo.Text),
+                        Dni = txtDni.Text
+                    });
+                    break;
+                case "borrar":
+                    dao.Baja(int.Parse(txtId.Text));
+                    break;
+                case "editar":
+                    dao.Modificacion(new Entidades.Empleado()
+                    {
+                        Id = int.Parse(txtId.Text),
+                        IdDepartamento = int.Parse(ddlDepartamento.SelectedValue),
+                        Nombre = txtNombre.Text,
+                        FechaDeNacimiento = DateTime.Parse(txtFecha.Text),
+                        Sueldo = decimal.Parse(txtSueldo.Text),
+                        Dni = txtDni.Text
+                    });
+                    break;
+            }
+
+            Response.Redirect("~/Admin.aspx");
         }
 
         //protected void btnCancelar_Click(object sender, EventArgs e)

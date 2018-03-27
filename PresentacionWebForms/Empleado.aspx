@@ -53,7 +53,7 @@
 
         <div class="form-group">
             <div class="col-sm-offset-2 col-sm-10">
-                <asp:Button ID="btnAceptar" runat="server" CssClass="btn"></asp:Button>
+                <asp:Button ID="btnAceptar" runat="server" CssClass="btn" OnClick="btnAceptar_Click"></asp:Button>
                 <a href="Admin" class="btn btn-default">Cancelar</a>
 
 <%--                <asp:Button ID="btnCancelar" runat="server" CssClass="btn btn-default"
