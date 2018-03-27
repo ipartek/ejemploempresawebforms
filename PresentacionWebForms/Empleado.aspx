@@ -1,6 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Empleado.aspx.cs" Inherits="PresentacionWebForms.Empleado" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-<h1>Mantenimiento de empleados</h1>
+    <h1>Mantenimiento de empleados</h1>
     <div class="form-horizontal">
         <div class="form-group">
             <asp:Label runat="server" AssociatedControlID="txtId" 
@@ -53,7 +53,11 @@
 
         <div class="form-group">
             <div class="col-sm-offset-2 col-sm-10">
-                <button type="submit" class="btn btn-default">Sign in</button>
+                <asp:Button ID="btnAceptar" runat="server" CssClass="btn"></asp:Button>
+                <a href="Admin" class="btn btn-default">Cancelar</a>
+
+<%--                <asp:Button ID="btnCancelar" runat="server" CssClass="btn btn-default"
+                    Text="Cancelar"></asp:Button>--%>
             </div>
         </div>
     </div></asp:Content>

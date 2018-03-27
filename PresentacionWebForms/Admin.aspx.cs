@@ -36,14 +36,19 @@ namespace PresentacionWebForms
             tabla.DataBind();
         }
 
-        protected void btnAlta_Click(object sender, EventArgs e)
-        {
-            Server.Transfer("~/Empleado.aspx");
-        }
+        //protected void btnAlta_Click(object sender, EventArgs e)
+        //{
+        //    Server.Transfer("~/Empleado.aspx?opcion=alta");
+        //}
 
-        protected void tabla_ItemCommand(object source, RepeaterCommandEventArgs e)
-        {
+        //protected void tabla_ItemCommand(object source, RepeaterCommandEventArgs e)
+        //{
+        //    System.Diagnostics.Debug.Print(
+        //        String.Format("{0},{1}", e.CommandName, e.CommandArgument));
 
-        }
+        //    Server.Transfer(String.Format(
+        //        "~/Empleado.aspx?opcion={0}&id={1}", 
+        //        e.CommandName, e.CommandArgument));
+        //}
     }
 }
