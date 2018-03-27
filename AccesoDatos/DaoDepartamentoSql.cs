@@ -67,7 +67,7 @@ namespace AccesoDatos
                     con.Open();
 
                     IDbCommand com = con.CreateCommand();
-                    com.CommandText = "SELECT Id, IdDepartamento, Nombre, FechaDeNacimiento, Sueldo, DNI FROM Empleados";
+                    com.CommandText = "SELECT Id, Nombre FROM Departamentos";
 
                     IDataReader dr = com.ExecuteReader();
 

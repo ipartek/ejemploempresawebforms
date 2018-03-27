@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AccesoDatos;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -13,7 +14,33 @@ namespace PresentacionWebForms
         {
             if (!IsPostBack)
             {
-                txtId.Text = Request["id"];
+                IDaoDepartamento daoDepartamentos = new DaoDepartamentoSql(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\javierlete\Source\Repos\EjemploEmpresa\PresentacionWebForms\App_Data\EjemploEmpresa.mdf;Integrated Security=True");
+
+                List<Entidades.Departamento> departamentos = daoDepartamentos.ObtenerTodos();
+
+                foreach (Entidades.Departamento departamento in departamentos)
+                {
+                    ddlDepartamento.Items.Add(
+                        new ListItem(departamento.Nombre, departamento.Id.ToString()));
+                }
+
+                if (Request["id"] != null)
+                {
+                    IDaoEmpleado dao = new DaoEmpleadoSql(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\javierlete\Source\Repos\EjemploEmpresa\PresentacionWebForms\App_Data\EjemploEmpresa.mdf;Integrated Security=True");
+
+                    int id = int.Parse(Request["id"]);
+
+                    Entidades.Empleado empleado = dao.ObtenerPorId(id);
+
+                    txtId.Text = empleado.Id.ToString();
+
+                    ddlDepartamento.SelectedValue = empleado.IdDepartamento.ToString();
+
+                    txtNombre.Text = empleado.Nombre;
+                    txtFecha.Text = empleado.FechaDeNacimiento.ToString("yyyy-MM-dd");
+                    txtSueldo.Text = empleado.Sueldo.ToString("0");
+                    txtDni.Text = empleado.Dni;
+                }
 
                 switch (Request["opcion"])
                 {
