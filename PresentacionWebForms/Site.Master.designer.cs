@@ -13,6 +13,15 @@ namespace PresentacionWebForms {
     public partial class SiteMaster {
         
         /// <summary>
+        /// Control linklogin.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink linklogin;
+        
+        /// <summary>
         /// Control txtNick.
         /// </summary>
         /// <remarks>
@@ -40,6 +49,15 @@ namespace PresentacionWebForms {
         protected global::System.Web.UI.WebControls.Button btnLogin;
         
         /// <summary>
+        /// Control btnLogout.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton btnLogout;
+        
+        /// <summary>
         /// Control MainContent.
         /// </summary>
         /// <remarks>
@@ -47,5 +65,14 @@ namespace PresentacionWebForms {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ContentPlaceHolder MainContent;
+        
+        /// <summary>
+        /// Control scripts.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal scripts;
     }
 }
