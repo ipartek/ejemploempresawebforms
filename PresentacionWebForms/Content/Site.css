@@ -33,3 +33,15 @@ textarea {
 #empleados td {
     vertical-align: middle;
 }
+
+#btnlogin {
+    text-align: right;
+}
+
+#login {
+    background-color: white;
+    padding: 1em;
+    border-radius: 5px;
+    display: block;
+    margin-bottom: 1em;
+}
