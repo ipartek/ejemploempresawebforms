@@ -1,7 +1,5 @@
 ﻿$(function () {
-    $('#login').hide();
-
-    $('#btnlogin').click(function (e) {
+    $('#linklogin').click(function (e) {
         e.preventDefault();
 
         $('#login').slideToggle();

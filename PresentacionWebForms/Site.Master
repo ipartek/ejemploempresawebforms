@@ -58,7 +58,8 @@
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         <li>
-                            <a id="btnlogin" href="#">Login</a>
+                            <asp:HyperLink ClientIDMode="Static" ID="linklogin" runat="server"
+                                NavigateUrl="#" Text="Login" />
                             <div id="login">
                                 <div class="form-horizontal">
                                     <div class="form-group">
@@ -82,11 +83,15 @@
                                     <div class="form-group">
                                         <div class="col-sm-offset-3 col-sm-9">
                                             <asp:Button ID="btnLogin" runat="server" 
-                                                CssClass="btn btn-default" Text="Login" />
+                                                CssClass="btn btn-default" Text="Login" 
+                                                OnClick="btnLogin_Click"/>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+                        </li>
+                        <li>
+                            <asp:LinkButton ID="btnLogout" runat="server" Text="Logout" OnClick="btnLogout_Click" />
                         </li>
                     </ul>
                 </div>
@@ -102,5 +107,7 @@
         </div>
 
     </form>
+
+    <asp:Literal ID="scripts" runat="server" />
 </body>
 </html>

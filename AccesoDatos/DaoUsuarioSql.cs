@@ -32,7 +32,7 @@ namespace AccesoDatos
 
                     IDbDataParameter parId = com.CreateParameter();
                     parId.DbType = DbType.String;
-                    parId.ParameterName = "Nombre";
+                    parId.ParameterName = "Id";
                     com.Parameters.Add(parId);
 
                     parId.Value = idUsuario;
