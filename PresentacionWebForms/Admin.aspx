@@ -42,6 +42,5 @@
             </asp:Repeater>
         </tbody>
     </table>
-    </table>
 </asp:Content>
 

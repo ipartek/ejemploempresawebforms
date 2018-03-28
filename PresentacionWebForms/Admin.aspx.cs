@@ -13,6 +13,12 @@ namespace PresentacionWebForms
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if(Session["usuario"] == null)
+            {
+                Response.Redirect("~");
+                return;
+            }
+
             List<Entidades.Empleado> empleados;
 
             IDaoEmpleado dao = (IDaoEmpleado)Application["daoEmpleados"];

@@ -30,5 +30,10 @@ namespace PresentacionWebForms
             Application["daoUsuarios"] = daoUsuarios;
             Application["daoEmpleados"] = daoEmpleados;
         }
+
+        void Session_Start(object sender, EventArgs e)
+        {
+            Session["invitaciones"] = new Dictionary<int, int>();
+        }
     }
 }

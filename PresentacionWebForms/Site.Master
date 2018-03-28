@@ -54,6 +54,7 @@
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
                         <li><a runat="server" href="~/">Inicio</a></li>
+                        <li><a runat="server" href="~/Invitaciones.aspx">Invitaciones</a></li>
                         <li><a runat="server" href="~/Admin.aspx">Mantenimiento empleados</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
