@@ -44,4 +44,8 @@ textarea {
     border-radius: 5px;
     display: block;
     margin-bottom: 1em;
+    position: fixed;
+    width: 25em;
+    right: 0em;
+    border: 1px solid gray;
 }

@@ -15,7 +15,7 @@ namespace PresentacionWebForms
         {
             List<Entidades.Empleado> empleados;
 
-            IDaoEmpleado dao = new DaoEmpleadoSql(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\javierlete\Source\Repos\EjemploEmpresa\PresentacionWebForms\App_Data\EjemploEmpresa.mdf;Integrated Security=True");
+            IDaoEmpleado dao = (IDaoEmpleado)Application["daoEmpleados"];
             empleados = dao.ObtenerTodos();
 
             //empleados = new List<Entidades.Empleado>();

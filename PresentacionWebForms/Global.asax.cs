@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AccesoDatos;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -16,6 +17,18 @@ namespace PresentacionWebForms
             // Código que se ejecuta al iniciar la aplicación
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+
+            string cadenaConexion =
+                System.Configuration.ConfigurationManager.
+                    ConnectionStrings["ejemploempresa"].ConnectionString;
+
+            IDaoDepartamento daoDepartamentos = new DaoDepartamentoSql(cadenaConexion);
+            IDaoEmpleado daoEmpleados = new DaoEmpleadoSql(cadenaConexion);
+            IDaoUsuario daoUsuarios = new DaoUsuarioSql(cadenaConexion);
+
+            Application["daoDepartamentos"] = daoDepartamentos;
+            Application["daoUsuarios"] = daoUsuarios;
+            Application["daoEmpleados"] = daoEmpleados;
         }
     }
 }

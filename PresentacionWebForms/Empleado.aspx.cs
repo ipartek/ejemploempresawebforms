@@ -14,7 +14,8 @@ namespace PresentacionWebForms
         {
             if (!IsPostBack)
             {
-                IDaoDepartamento daoDepartamentos = new DaoDepartamentoSql(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\javierlete\Source\Repos\EjemploEmpresa\PresentacionWebForms\App_Data\EjemploEmpresa.mdf;Integrated Security=True");
+                IDaoDepartamento daoDepartamentos = 
+                    (IDaoDepartamento)Application["daoDepartamentos"];
 
                 List<Entidades.Departamento> departamentos = daoDepartamentos.ObtenerTodos();
 
@@ -26,7 +27,8 @@ namespace PresentacionWebForms
 
                 if (Request["id"] != null)
                 {
-                    IDaoEmpleado dao = new DaoEmpleadoSql(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\javierlete\Source\Repos\EjemploEmpresa\PresentacionWebForms\App_Data\EjemploEmpresa.mdf;Integrated Security=True");
+                    IDaoEmpleado dao =
+                        (IDaoEmpleado)Application["daoEmpleados"];
 
                     int id = int.Parse(Request["id"]);
 
@@ -69,7 +71,7 @@ namespace PresentacionWebForms
 
         protected void btnAceptar_Click(object sender, EventArgs e)
         {
-            IDaoEmpleado dao = new DaoEmpleadoSql(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\javierlete\Source\Repos\EjemploEmpresa\PresentacionWebForms\App_Data\EjemploEmpresa.mdf;Integrated Security=True");
+            IDaoEmpleado dao = (IDaoEmpleado)Application["daoEmpleados"];
 
             switch (Request["opcion"])
             {
