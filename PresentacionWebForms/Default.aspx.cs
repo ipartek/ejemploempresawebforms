@@ -10,13 +10,17 @@ namespace PresentacionWebForms
 {
     public partial class _Default : Page
     {
+        IDaoEmpleado dao;
+
         protected void Page_Load(object sender, EventArgs e)
         {
+            dao = (IDaoEmpleado)Application["daoEmpleados"];
+
             if (!IsPostBack)
             {
                 List<Entidades.Empleado> empleados;
 
-                IDaoEmpleado dao = (IDaoEmpleado)Application["daoEmpleados"];
+
                 empleados = dao.ObtenerTodos();
 
                 tabla.DataSource = empleados;
@@ -31,7 +35,37 @@ namespace PresentacionWebForms
             int cantidad = int.Parse(t.Text);
             int id = int.Parse((string)e.CommandArgument);
 
-            ((Dictionary<int, int>)Session["invitaciones"]).Add(id, cantidad);
+            Dictionary<int, Entidades.Invitacion> invitaciones =
+                (Dictionary<int, Entidades.Invitacion>)Session["invitaciones"];
+
+            if (invitaciones.ContainsKey(id))
+                invitaciones[id].CantidadInvitaciones = cantidad;
+            else
+            {
+                IDaoDepartamento daoDepartamento = (IDaoDepartamento)Application["daoDepartamentos"];
+
+                Entidades.Empleado empleado = dao.ObtenerPorId(id);
+
+                empleado.DepartamentoAsignado = daoDepartamento.ObtenerPorId(empleado.IdDepartamento);
+
+                invitaciones.Add(id, new Entidades.Invitacion()
+                {
+                    IdEmpleado = id,
+                    CantidadInvitaciones = cantidad,
+                    EmpleadoInvitado = empleado
+                }
+                );
+            }
+        }
+
+        public int InvitacionPorId(object idString)
+        {
+            int id = (int)idString;
+
+            Dictionary<int, Entidades.Invitacion> dic =
+                (Dictionary<int, Entidades.Invitacion>)Session["invitaciones"];
+
+            return dic.ContainsKey(id) ? dic[id].CantidadInvitaciones : 0;
         }
     }
 }

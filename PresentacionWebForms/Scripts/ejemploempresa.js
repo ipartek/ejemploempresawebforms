@@ -28,4 +28,8 @@
 
         input.val(cantidad);
     });
+
+    $('#empleados tbody tr').each(function () {
+
+    });
 });

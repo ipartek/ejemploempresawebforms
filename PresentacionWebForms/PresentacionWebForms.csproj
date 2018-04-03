@@ -146,6 +146,7 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="ObtenerCantidadInvitaciones.ashx" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Invitaciones.aspx" />
     <Content Include="Scripts\bootstrap.js" />
@@ -216,6 +217,9 @@
     </Compile>
     <Compile Include="Invitaciones.aspx.designer.cs">
       <DependentUpon>Invitaciones.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ObtenerCantidadInvitaciones.ashx.cs">
+      <DependentUpon>ObtenerCantidadInvitaciones.ashx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Site.Master.cs">

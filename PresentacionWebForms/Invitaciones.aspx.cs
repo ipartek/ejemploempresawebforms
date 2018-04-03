@@ -11,7 +11,10 @@ namespace PresentacionWebForms
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            tabla.DataSource = (Dictionary<int, int>)Session["invitaciones"];
+            Dictionary<int, Entidades.Invitacion> dic = 
+                (Dictionary<int, Entidades.Invitacion>)Session["invitaciones"];
+            var lista = dic.Values;
+            tabla.DataSource = lista;
             tabla.DataBind();
         }
     }

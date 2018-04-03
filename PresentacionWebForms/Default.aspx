@@ -29,7 +29,8 @@
                             <button class="btnmenos btn btn-default">-</button>
                             <asp:TextBox ID="txtCantidad" runat="server"
                                 TextMode="Number" MaxLength="2" 
-                                style="width: 4em; display: inline" Text="0"
+                                style="width: 4em; display: inline" 
+                                Text='<%# InvitacionPorId(Eval("Id"))%>'
                                 CssClass="form-control"  
                                 />
                             <button class="btnmas btn btn-default">+</button>

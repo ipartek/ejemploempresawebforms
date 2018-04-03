@@ -1,4 +1,5 @@
 ﻿using AccesoDatos;
+using Entidades;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -33,7 +34,7 @@ namespace PresentacionWebForms
 
         void Session_Start(object sender, EventArgs e)
         {
-            Session["invitaciones"] = new Dictionary<int, int>();
+            Session["invitaciones"] = new Dictionary<int, Invitacion>();
         }
     }
 }

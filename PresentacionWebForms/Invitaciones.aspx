@@ -4,7 +4,8 @@
     <table class="table">
         <thead>
             <tr>
-                <th>Id Empleado</th>
+                <th>Empleado</th>
+                <th>Departamento</th>
                 <th>Cantidad</th>
             </tr>
         </thead>
@@ -12,8 +13,9 @@
             <asp:Repeater ID="tabla" runat="server">
                 <ItemTemplate>
                     <tr>
-                        <td><%# DataBinder.Eval((System.Collections.Generic.KeyValuePair<int, int>)Container.DataItem,"Key") %></td>
-                        <td><%# DataBinder.Eval((System.Collections.Generic.KeyValuePair<int, int>)Container.DataItem,"Value") %></td>
+                        <td><%# Eval("EmpleadoInvitado.Nombre") %></td>
+                        <td><%# Eval("EmpleadoInvitado.DepartamentoAsignado.Nombre") %></td>
+                        <td><%# Eval("CantidadInvitaciones") %></td>
                     </tr>
                 </ItemTemplate>
             </asp:Repeater>
